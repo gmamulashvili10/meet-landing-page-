@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;900&display=swap%22");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;900&display=swap");
 
 * {
   margin: 0;
@@ -6,8 +6,13 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Red Hat Display", sans-serif;
+  overflow-x: hidden;
 }
 
 .container {
@@ -21,6 +26,11 @@ body {
 
 .people-logos {
   padding-bottom: 3rem;
+}
+
+.left-hero,
+.right-hero {
+  display: none;
 }
 
 .main {
@@ -50,6 +60,8 @@ body {
 .for-button {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
 .cyan-button {
@@ -61,6 +73,13 @@ body {
   font-weight: 900;
   font-size: 14px;
   line-height: 26px;
+  width: 193px;
+  display: flex;
+  gap: 10px;
+}
+
+.cyan-button:hover {
+  background-color: #8fe3f9;
 }
 
 .cyan-span {
@@ -71,7 +90,7 @@ body {
 }
 
 .purple-button {
-  padding: 13px 2px;
+  padding: 15px 35px;
   background: #855fb1;
   border-radius: 29px;
   border: none;
@@ -79,9 +98,11 @@ body {
   font-weight: 900;
   font-size: 14px;
   line-height: 26px;
-  margin-top: 16px;
   width: 82%;
-  align-self: center;
+}
+
+.purple-button:hover {
+  background-color: #b18bdd;
 }
 
 .circle-01 {
@@ -98,12 +119,20 @@ body {
   padding-bottom: 56px;
 }
 
-.info-box {
+.woman-in-videocal,
+.woman-in-calling,
+.men-in-meeting,
+.man-in-texting {
+  display: none;
+}
+
+.info {
   display: flex;
   flex-direction: column;
-  text-align: center;
   align-items: center;
+  text-align: center;
 }
+
 h2 {
   font-family: "Red Hat Display";
   font-weight: 900;
@@ -116,43 +145,48 @@ h2 {
 }
 
 .smart {
+  max-width: 327px;
   font-family: "Red Hat Display";
   font-weight: 900;
   font-size: 32px;
   line-height: 36px;
   color: #28283d;
-  max-width: 327px;
   padding-bottom: 32px;
 }
 
 .message-p {
+  max-width: 327px;
   font-family: "Red Hat Display";
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
   color: #87879d;
-  max-width: 327px;
+  padding-bottom: 148px;
 }
 
-/* footer section */
+.experience-h1 {
+  font-family: "Red Hat Display";
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 148px;
+}
 
-footer {
+/* footer */
+
+.footer-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: center;
-  margin-top: 130px;
-  background-image: url(./assets/mobile/image-footer.jpg);
+  background-image: url(assets/mobile/image-footer.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #4d96a9;
   position: relative;
   isolation: isolate;
-  background-blend-mode: multiply;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-footer::before {
+.footer-div::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -162,11 +196,17 @@ footer::before {
   z-index: -1;
 }
 
-.img-02 {
+.circle-02 {
   position: relative;
   left: 0;
   top: 0;
   transform: translate(0%, -50%);
+}
+
+.last-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .experience-h1 {
@@ -179,7 +219,7 @@ footer::before {
   color: #fafafa;
 }
 
-.footer-p {
+.last-paragraph {
   padding-top: 15px;
   color: #fafafa;
   font-family: "Red Hat Display";
@@ -189,7 +229,7 @@ footer::before {
   max-width: 327px;
 }
 
-.footer-btn {
+.last-button {
   margin: 50px 0px;
   padding: 13px 28px;
   background: #855fb1;
@@ -202,16 +242,27 @@ footer::before {
   border-radius: 29px;
 }
 
-/* tablet version*/
-@media (min-width: 800px) {
+.last-button:hover {
+  background-color: #b18bdd;
+}
+
+.btn-span {
+  color: #d9b8ff;
+}
+
+/* tablet */
+
+@media (min-width: 768px) {
   .meet-logo {
     margin-inline: auto;
   }
+
   .main-text {
     font-size: 48px;
     line-height: 48px;
     max-width: 339px;
   }
+
   .main-paragraph {
     font-size: 16px;
     line-height: 26px;
@@ -219,6 +270,97 @@ footer::before {
   }
 
   .for-button {
+    display: flex;
     flex-direction: row;
+  }
+
+  .smart {
+    max-width: 355px;
+  }
+
+  .message-p {
+    max-width: 593px;
+  }
+
+  .last-paragraph {
+    max-width: 573px;
+  }
+
+  .footer-div {
+    background-image: none;
+    background-image: url(assets/tablet/image-footer.jpg);
+    background-size: cover;
+  }
+}
+
+@media (min-width: 1440px) {
+  .people-logos {
+    display: none;
+  }
+  .left-hero {
+    display: block;
+    position: absolute;
+    left: -3.5%;
+    margin-top: 100px;
+    width: 500px;
+  }
+
+  .right-hero {
+    display: block;
+    position: absolute;
+    right: -3.5%;
+    margin-top: 160px;
+    width: 500px;
+    overflow: hidden;
+  }
+
+  .main-text {
+    margin-top: 30px;
+  }
+
+  .main-paragraph {
+    max-width: 480px;
+  }
+
+  .woman-meeting,
+  .woman-calling,
+  .man-meeting,
+  .man-texting {
+    display: none;
+  }
+
+  .woman-in-videocal,
+  .woman-in-calling,
+  .men-in-meeting,
+  .man-in-texting {
+    display: block;
+    max-width: 300px;
+    border-radius: 10px;
+  }
+
+  .message-p {
+    max-width: 463px;
+  }
+
+  .last-div {
+    flex-direction: row;
+    margin-bottom: 50px;
+  }
+
+  .experience-h1,
+  .last-paragraph {
+    max-width: 350px;
+    text-align: left;
+  }
+
+  .experience-h1,
+  .last-button {
+    margin-left: 50px;
+  }
+
+  .footer-div {
+    background-image: none;
+    background-image: url(assets/desktop/image-footer.jpg);
+    background-size: cover;
   }
 }
